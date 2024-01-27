@@ -19,8 +19,8 @@ app.use(bodyParser.json());
 
 
 // activate the server at 3000 port
-app.listen(3000, () => {
-    console.log("Server started at Port Number 3000 ")
+app.listen(5000, () => {
+    console.log("Server started at Port Number 5000 ")
 });
 
 
@@ -36,3 +36,13 @@ app.post('/api/cars', (request, response)=>{
     console.log(brand);
     response.send("Car Submitted Successfully");
 })
+
+
+const mongoose = require("mongoose");
+
+mongoose.connect('mongodb://localhost:27017/myDatabase',{
+    // useNewUrlParser:true,
+    // useUnifiedTopology:true
+})
+.then(()=>{console.log("connnection successful")})
+.catch((error)=>{console.log("Received Error ")})
