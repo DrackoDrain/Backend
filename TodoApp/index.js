@@ -27,11 +27,6 @@ app.listen(PORT,()=>{
     console.log(`Server started successfully at ${PORT}`);
 })
 
-
-
-
-
-
 //default route
 app.get("/", (req,res)=>{
     res.send(`<h1> this is homepage </h1>`);
