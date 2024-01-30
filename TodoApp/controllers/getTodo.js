@@ -30,6 +30,8 @@ exports.getTodo = async(req,res) =>{
 }
 
 
+
+// find by id 
 exports.getTodoById = async(req,res) => {
     try {
 
