@@ -7,7 +7,8 @@ const Todo = require("../models/Todo");
 exports.getTodo = async(req,res) =>{
     try{
           // fetch all todos items form database 
-          const todos = Todo.find({});
+          const todos = await Todo.find({
+          });
 
           // response 
           res.status(200)
@@ -15,9 +16,7 @@ exports.getTodo = async(req,res) =>{
             success:true,
             data:todos,
             message:"Entire Todo Data fetched",
-          })
-
-            
+          })           
     }
     catch(err){
         console.error(err);
@@ -27,12 +26,39 @@ exports.getTodo = async(req,res) =>{
             data:"internal server error",
             message:err.message,
         })
-
-
-    }
-   
+    } 
 }
 
 
+exports.getTodoById = async(req,res) => {
+    try {
 
- 
+        // extract todo items by id 
+        const id = await req.params.id;
+        const todo = await Todo.findById({_id: id})
+
+        // if data for given id is not found 
+        if(!todo){
+            return res.status(404).json({
+                success:false,
+                message:"NO data for found for given id ",
+            })
+        }
+        res.status(200).json({
+            success:true,
+            data:todo,
+            message:`Todo ${id} data successfully fetched `,
+        })
+       
+    } catch (err) {
+        console.error(err);
+        res.status(500)
+        .json({
+            success: false,
+            data:"internal server error by id",
+            message:err.message
+        })
+
+        
+    }
+}
