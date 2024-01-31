@@ -1,9 +1,10 @@
 const express = require("express");
-
 const app = express();
 
 
 require("dotenv").config();
+// load config from env file
+const PORT = process.env.PORT || 3000;
 
 // connect with db 
 const dbconnect = require("./config/database");
@@ -11,8 +12,7 @@ dbconnect();
 
 
 
-// load config from env file
-const PORT = process.env.PORT || 3000;
+
 
 // middleware
 app.use(express.json());
@@ -34,8 +34,9 @@ app.listen(PORT, ()=>{
 
 // default route 
 
- app.get('/',()=>{
-    console.log(`<h1> This is homepage </h1>`)
+ app.get('/',(req,res)=>{
+    res.send(`<h1> This is homepage </h1>`)
+    
  })
 
 
