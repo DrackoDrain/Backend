@@ -12,7 +12,7 @@ const {createPost } = require("../controllers/postController");
 
 const { getAllPosts} = require("../controllers/getallpost");
 
-const {likePost, unlikePost} = require("../controllers/likeController");
+const {likePost, unlikePost} = require("../controllers/LikeController");
 
 
 
