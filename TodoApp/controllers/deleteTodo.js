@@ -13,9 +13,6 @@ exports.deleteTodo = async (req,res)=>{
             
             message :"Todo Deleted",
         })
-
-        
-
         
 
         
