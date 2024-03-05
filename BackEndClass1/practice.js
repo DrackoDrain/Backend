@@ -14,8 +14,6 @@ app.listen(4000, ()=>{
     console.log(" 4000 port is running ");
 
 })
-
-
 app.post('/api/companies', (req, res) =>{
     const {
         name = "Gucci",
